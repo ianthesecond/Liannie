@@ -1,0 +1,238 @@
+{% extends "oscar/layout.html" %}
+
+{% load history_tags %}
+{% load currency_filters %}
+{% load reviews_tags %}
+{% load product_tags %}
+{% load display_tags %}
+{% load i18n %}
+{% load purchase_info_tags %}
+
+{% block title %}
+    {{ product.get_meta_title }} | {{ block.super }}
+{% endblock %}
+
+{% block description %}
+    {{ product.get_meta_description }}
+{% endblock %}
+
+
+{% block content_wrapper %}
+    <div class="container page">
+        <div class="page_inner detail">
+            
+            
+            {% comment %} {% block header %}
+                <div class="page-header">
+                    <h1>{% block headertext %}{% endblock %}</h1>
+                </div>
+            {% endblock %} {% endcomment %}
+            {% include "oscar/partials/alert_messages.html" %}
+            <div class="content">
+                {# Div exists for AJAX updates to entire content section #}
+                <div id="content_inner">
+                {% block content %}
+                    <article class="product_page"><!-- Start of product page -->
+                        <div class="row">
+                            {% block product %}
+                            <div class="col-sm-6 product-unscrollable">
+                                {% block breadcrumbs %}
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="{{ homepage_url }}">{% trans "Home" %}</a></li>
+                                            {% with category=product.get_categories.first %}
+                                                {% for c in category.get_ancestors_and_self %}
+                                                    <li class="breadcrumb-item"><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>
+                                                {% endfor %}
+                                                <li class="breadcrumb-item active" aria-current="page">{{ product.get_title }}</li>
+
+                                                {% get_back_button as backbutton %}
+                                                    {% if backbutton %}
+                                                        <li class="float-right">
+                                                            <a href="{{ backbutton.url }}">
+                                                                <i class="fas fa-arrow-left"></i> {{ backbutton.title }}
+                                                            </a>
+                                                        </li>
+                                                    {% endif %}
+                                            {% endwith %}
+                                        </ol>
+                                    </nav>
+                                {% endblock %}
+
+                                {% include "oscar/catalogue/partials/gallery.html" %}
+
+                                {# Product title and price #}
+                                <div class="d-flex justify-content-between mb-2 mx-1">
+                                    <h1>{{ product.get_title }}</h1>
+
+                                    {% block product_stock_record %}
+                                        {% include "oscar/catalogue/partials/stock_record.html" with verbose=1 %}
+                                    {% endblock %}
+                                </div>
+
+                                <p>
+                                    {{ product.attr.short_description }}
+                                </p>
+
+                                {# Add to basket and add to wishlist #}
+                                {% if not product.is_parent %}
+                                    {% block product_basket_form %}
+                                        {% include "oscar/catalogue/partials/add_to_basket_form.html" %}
+                                    {% endblock %}
+                                {% else %}
+                                    {% block variants %}
+                                        <h2>{% trans 'Variants:' %}</h2>
+                                        {% for child in product.children.public %}
+                                            {% purchase_info_for_product request child as child_session %}
+                                            {% if child_session.availability.is_available_to_buy %}
+                                                <a href="{{ child.get_absolute_url }}">{{ child.get_title }}</a><br>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endblock %}
+                                {% endif %}
+
+
+                                {% iffeature "reviews" %}
+                                    {% include "oscar/catalogue/reviews/partials/review_stars.html" %}
+                                {% endiffeature %}
+                            </div>
+                            {% endblock %}
+
+                            {% block product_main %}
+                            <div class="col-sm-6 product_main px-0 pt-2">
+                                {% comment %}
+                                    This is a bit clunky here.  Better to have some kind of JS-driven dashboard menu that
+                                    pops out when clicked.  A bit like the Django-Debug-Toolbar button
+                                {% endcomment %}
+                                
+                                <!-- This wrapper is so that the scroll bar doesnt interfere with the borders -->
+                                <div class="product_main_wrapper pt-1 px-3">
+                                    {% if user.is_staff %}
+                                        <a class="float-right d-none d-md-block" href="{% url 'dashboard:catalogue-product' pk=product.id %}">
+                                            <small><i class="fas fa-pencil-alt"></i> {% trans "Edit this product" %}</small>
+                                        </a>
+                                    {% endif %}
+
+                                    {% block product_description %}
+                                        {% if product.description %}
+                                        <div id="product_description" class="sub-header">
+                                            <h2>{% trans "Product Description" %}</h2>
+                                        </div>
+                                        <p>{{ product.description|safe }}</p>
+                                        {% endif %}
+                                    {% endblock %}
+
+                                    {% block nutrition_summary %}
+                                    <div id="nutrition-summary-container">
+                                        <div id="nutrition_summary" class="sub-header">
+                                            <h2>{% trans "Nutrition Summary" %}</h2>
+                                        </div>
+                                        <div class="d-flex justify-content-around">
+                                            <div class="nutrition-info">
+                                                <h3>{% trans "Calories" %}</h3>
+                                                <p>{{ product.attr.calories }}</p>
+                                            </div>
+                                            <div class="nutrition-info">
+                                                <h3>{% trans "Protein" %}</h3>
+                                                <p>{{ product.attr.Protein }}</p>
+                                            </div>
+                                            <div class="nutrition-info">
+                                                <h3>{% trans "Carbohydrates" %}</h3>
+                                                <p>{{ product.attr.carbohydrates }}</p>
+                                            </div>
+                                            <div class="nutrition-info">
+                                                <h3>{% trans "Fat" %}</h3>
+                                                <p>{{ product.attr.fat }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endblock nutrition_summary %}
+
+                                    {% recently_viewed_products current_product=product %}
+
+                                    {% iffeature "reviews" %}
+                                        {% block product_review %}
+                                        <section>
+                                            <div id="reviews" class="sub-header">
+                                                {% if product.num_approved_reviews > 3 %}
+                                                    <a href="{% url 'catalogue:reviews-list' product_slug=product.slug product_pk=product.id %}" class="btn float-right">{% trans "See all reviews" %}</a>
+                                                {% endif %}
+                                                <h2>{% trans "Customer Reviews" %}</h2>
+                                                <p>
+                                                {% trans "Number of reviews" %}: <strong>{{ product.num_approved_reviews }}</strong>
+                                                </p>
+                                            </div>
+
+                                            {% if product.num_approved_reviews == 0 %}
+                                                <p>
+                                                    {% if product|is_review_permitted:user %}
+                                                        {% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id as add_review_url %}
+                                                            {% blocktrans %}This product does not have any reviews yet -
+                                                            <a href="{{ add_review_url }}#addreview">be the first to write one</a>.
+                                                        {% endblocktrans %}
+                                                    {% else %}
+                                                        {% trans "This product does not have any reviews yet" %}.
+                                                    {% endif %}
+                                                </p>
+                                            {% else %}
+                                                <ol class="list-unstyled review-list mx-n2 p-2">
+                                                    {% for review in product.reviews.approved.all|slice:":3" %}
+                                                        <li class="p-2 my-2">
+                                                        {% include 'oscar/catalogue/partials/review.html' %}
+                                                        </li>
+                                                    {% endfor %}
+                                                </ol>
+                                            {% endif %}
+                                        </section>
+                                        {% endblock product_review %}
+                                    {% endiffeature %}
+                                </div>
+                            {% endblock %}
+                        </div><!-- /row -->
+
+                        
+
+                        {% comment %} {% block product_info %}
+                        <table class="table table-striped">
+                            {% if product.upc %}
+                            <tr>
+                                <th>{% trans "UPC" %}</th><td>{{ product.upc }}</td>
+                            </tr>
+                            {% endif %}
+                            {% purchase_info_for_product request product as session %}
+                            {% if session.price.exists %}
+                                <tr>
+                                    <th>{% trans "Availability" %}</th>
+                                    <td>{{ session.availability.message }}</td>
+                                </tr>
+                            {% endif %}
+                        </table>
+                        {% endblock %} {% endcomment %}
+
+                        {% with recommended_products=product.sorted_recommended_products|slice:":6" %}
+                            {% if recommended_products %}
+                                <div class="sub-header">
+                                    <h2>{% trans "Recommended items" %}</h2>
+                                </div>
+                                <ul class="row list-unstyled mx-0">
+                                    {% for product in recommended_products %}
+                                    <li class="col-sm-4 col-md-3 col-lg-3">
+                                        {% render_product product %}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        {% endwith %}
+                    </article><!-- End of product page -->
+                {% endblock content %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+{% block extrascripts %}
+    {{ block.super }}
+{% endblock %}

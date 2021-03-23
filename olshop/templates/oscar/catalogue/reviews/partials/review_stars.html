@@ -1,0 +1,27 @@
+{% load reviews_tags %}
+{% load i18n %}
+
+<div class="text-center">
+    {% if product|is_review_permitted:user %}
+        <a id="write_review" href="{% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id %}#addreview">
+            {% trans "Write a review" %}
+        </a>
+    {% endif %}
+    <p class="star-rating {{ product.rating|as_stars }} text-center m-0">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        &nbsp;
+    </p>
+    <small>
+        <a href="{% url 'catalogue:reviews-list' product_slug=product.slug product_pk=product.id %}">
+            {% blocktrans count product.num_approved_reviews as num_reviews %}
+                {{ num_reviews }} customer review
+            {% plural %}
+                {{ num_reviews }} customer reviews
+            {% endblocktrans %}
+        </a>
+    </small>
+</div>

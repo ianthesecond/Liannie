@@ -1,0 +1,17 @@
+{% load i18n %}
+{% load wishlist_tags %}
+
+{% if user.is_authenticated %}
+    {% wishlists_containing_product user.wishlists.all product as product_wishlists %}
+    <div class="product-wishlists-container">
+    {% for wishlist in product_wishlists %}
+        <form action="{% url 'customer:wishlists-remove-product' key=wishlist.key product_pk=product.id %}" method="post">
+            {% csrf_token %}
+            {% blocktrans with name=wishlist.name url=wishlist.get_absolute_url %}
+                <span class="float-left">Product is in <a href="{{ url }}">'{{ name }}'</a> wishlist.</span>
+            {% endblocktrans %}
+            <button type="submit" class="btn btn-sm float-right" data-loading-text="{% trans 'Removing...' %}">{% trans "Remove" %}</button>
+        </form>
+    {% endfor %}
+    </div>
+{% endif %}

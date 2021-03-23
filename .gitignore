@@ -1,0 +1,4 @@
+cache
+.env
+db.sqlite3
+images

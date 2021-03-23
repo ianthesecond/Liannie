@@ -1,0 +1,64 @@
+{% extends "oscar/layout.html" %}
+{% load i18n %}
+
+{% block title %}
+    {{ page_title }} | {% trans 'Account' %} | {{ block.super }}
+{% endblock %}
+
+{# Not sure what this is but gonna keep it here anyways #}
+{% block body_class %}account-profile{% endblock %}
+
+{% comment %}
+Keep the same header and footer as the standard layout template but override the
+main content area to split it into a sidebar and a content block
+{% endcomment %}
+{% block content_wrapper %}
+<div class="{% block content_wrapper_classes %}container page{% endblock %}">
+    <div class="page_inner">
+        {% block breadcrumbs %}
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{{ homepage_url }}">{% trans 'Home' %}</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'customer:summary' %}">{% trans 'Account' %}</a>
+                    </li>
+                    {% block extra_breadcrumbs %}{% endblock %}
+                    <li class="breadcrumb-item active" aria-current="page">{{ page_title }}</li>
+                </ol>
+            </nav>
+        {% endblock %}
+        <div class="row account">
+
+            <aside class="sidebar col-sm-4 col-md-3 pl-0">
+                {% block column_left %}
+                    <ul class="nav nav-pills flex-column">
+                        {% block standard_tabs %}
+                            {% include 'oscar/customer/partials/standard_tabs.html' %}
+                        {% endblock %}
+                    </ul>
+                {% endblock %}
+                
+                {% block column_left_extra %}{% endblock %}
+            </aside>
+
+            <div class="col-sm-8 col-md-9 py-2">
+                {% block header %}
+                <div class="page-header">
+                    <h1>{% block headertext %}{{ page_title }}{% endblock %}</h1>
+                </div>
+                {% endblock %}
+
+                {% include "oscar/partials/alert_messages.html" %}
+
+                {% block pre_content %}{% endblock %}
+                {% block content %}
+                    {% block tabcontent %}{% endblock tabcontent %}
+                {% endblock content %}
+            </div>
+
+        </div><!-- /row -->
+    </div><!-- /page_inner -->
+</div><!-- /container -->
+{% endblock %}

@@ -1,0 +1,13 @@
+{% load currency_filters %}
+{% load i18n %}
+
+<div class="basket-mini text-right d-block">
+    <div class="btn-group">
+      <i id="shopping-cart-icon" class="fas fa-shopping-basket fa-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only">Toggle Dropdown</span>
+      </i>
+      <div class="dropdown-menu dropdown-menu-right basket-mini-menu">
+        {% include "oscar/basket/partials/basket_quick.html" %}
+      </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+{% load i18n %}
+
+<div class="btn-group dropright">
+    <i id="search-icon" class="fas fa-search fa-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only">Toggle search</span>
+    </i>
+
+    <div class="dropdown-menu dropdown-menu-right">
+        <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'search:search' %}">
+            <input class="form-control m-1" name="q" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-info m-1 ml-auto" type="submit">{% trans "Search" %}</button>
+        </form>
+    </div>
+</div>

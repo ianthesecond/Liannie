@@ -1,0 +1,63 @@
+{% comment %} This partial is for the product rendering found in the browse.html,
+based off product.html {% endcomment %}
+
+{% load display_tags %}
+{% load i18n %}
+{% load image_tags %}
+{% load reviews_tags %}
+
+{% block product %}
+    <article class="product_card_pod container">
+        <a href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">
+        <div class="row h-100">
+            <div class="col-5 py-2 h-100 d-flex justify-content-center align-items-center">
+            {% block product_image %}
+                <div class="image_container align-middle text-center">
+                    {% with image=product.primary_image %}
+                        {% oscar_thumbnail image.original 'x250' upscale=False as thumb %}
+                        <img src="{{ thumb.url }}" alt="{{ product.get_title }}" class="img-thumbnail" height="{{ thumb.height }}">
+                    {% endwith %}
+                </div>
+            {% endblock %}
+            </div>
+            <div class="col d-flex flex-column justify-content-between">
+                <div class="d-flex align-items-center justify-content-between">
+                    {% block product_title %}
+                        <h3 class="my-2">
+                            {{ product.get_title|truncatewords:4 }}
+                        </h3>
+                    {% endblock %}
+                    {% block product_price %}
+                        <div class="product_price ">
+                            {% include "oscar/catalogue/partials/stock_record.html" %}
+                        </div>
+                    {% endblock %}
+                    </div>
+                <div>
+                    {% block product_short_description %}
+                        <p>
+                            {{ product.attr.short_description }}
+                        </p>
+                    {% endblock product_short_description %}
+                </div>
+                <div class="d-flex align-items-center justify-content-between p-1 m-1">
+                    {% block product_review %}
+                        {% iffeature "reviews" %}
+                            <p class="star-rating {{ product.rating|as_stars }}">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </p>
+                        {% endiffeature %}
+                    {% endblock %}
+                    {% if not product.is_parent and not product.has_options %}
+                        {% include "oscar/catalogue/partials/add_to_basket_form_compact.html" %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        </a>
+    </article>
+{% endblock %}
