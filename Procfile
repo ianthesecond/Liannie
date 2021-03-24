@@ -1,1 +1,1 @@
-web: gunicorn olshop.asgi:application -k uvicorn.workers.UvicornWorker
+web: gunicorn olshop.asgi:application --preload -k uvicorn.workers.UvicornWorker
