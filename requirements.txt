@@ -18,6 +18,7 @@ factory-boy==2.12.0
 Faker==6.4.1
 gunicorn==20.0.4
 h11==0.12.0
+httptools==0.1.1
 phonenumbers==8.12.18
 Pillow==8.1.0
 pip-autoremove==0.9.1
