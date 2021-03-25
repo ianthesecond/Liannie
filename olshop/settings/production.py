@@ -2,9 +2,9 @@ from .base import *
 import dj_database_url
 from decouple import config
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS += 'liannie.herokuapp.com'
+ALLOWED_HOSTS += ['liannie.herokuapp.com', '127.0.0.1']
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
@@ -14,7 +14,7 @@ MEDIA_URL = '/media/'
 MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware',]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+DATABASES['default'].update(dj_database_url.config(conn_max_age=600, ssl_require=True))
 
 EMAIL_USE_TLS = True 
 EMAIL_HOST = 'smpt.gmail.com'
