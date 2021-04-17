@@ -187,7 +187,7 @@ STATIC_URL = '/static/'
 
 # Places other than the app specific directories where collectstatic
 # will look for and collect as well
-STATICFILES_DIRS = [BASE_DIR / 'static']
+STATICFILES_DIRS = [BASE_DIR / 'static',]
 
 
 # https://docs.djangoproject.com/en/3.1/topics/email/
