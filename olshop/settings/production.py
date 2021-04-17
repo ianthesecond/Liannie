@@ -11,7 +11,6 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 
-MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware',]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DATABASES['default'].update(dj_database_url.config(conn_max_age=600, ssl_require=True))
