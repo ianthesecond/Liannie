@@ -10,7 +10,9 @@ INSTALLED_APPS += [
     'cloudinary_storage',
 ]
 
-DEBUG = True
+DEBUG = False
+
+ADMINS = [('Ian', config('IAN_ADMIN'))]
 
 ALLOWED_HOSTS += ['liannie.herokuapp.com', '127.0.0.1']
 
