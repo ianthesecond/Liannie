@@ -45,8 +45,8 @@ INSTALLED_APPS = [
 
     'oscar.config.Shop',
     'oscar.apps.analytics.apps.AnalyticsConfig',
-    'oscar.apps.checkout.apps.CheckoutConfig',
-    'oscar.apps.address.apps.AddressConfig',
+    'apps.checkout.apps.CheckoutConfig', # The forked checkout app
+    'apps.address.apps.AddressConfig', # The forked address app
     'apps.shipping.apps.ShippingConfig', # The forked shipping app. 
     'oscar.apps.catalogue.apps.CatalogueConfig',
     'oscar.apps.catalogue.reviews.apps.CatalogueReviewsConfig',
@@ -221,3 +221,4 @@ OSCAR_CURRENCY_FORMAT = {
     },
 }
 
+OSCAR_REQUIRED_ADDRESS_FIELDS = ('first_name', 'last_name', 'line1', 'phone_number') # Make it so that line4 is automatically set to Jakarta
