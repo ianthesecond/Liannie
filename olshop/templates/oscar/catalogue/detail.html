@@ -18,7 +18,7 @@
 
 
 {% block content_wrapper %}
-    <div class="container page">
+    <div class="container-fluid px-4 page">
         <div class="page_inner detail">
             
             
@@ -33,9 +33,9 @@
                 <div id="content_inner">
                 {% block content %}
                     <article class="product_page"><!-- Start of product page -->
-                        <div class="row">
+                        <div class="row mx-0">
                             {% block product %}
-                            <div class="col-sm-6 product-unscrollable">
+                            <div class="col-md-6 product-unscrollable">
                                 {% block breadcrumbs %}
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
@@ -99,7 +99,7 @@
                             {% endblock %}
 
                             {% block product_main %}
-                            <div class="col-sm-6 product_main px-0 pt-2">
+                            <div class="col-md-6 product_main px-0 pt-md-2">
                                 {% comment %}
                                     This is a bit clunky here.  Better to have some kind of JS-driven dashboard menu that
                                     pops out when clicked.  A bit like the Django-Debug-Toolbar button
@@ -134,7 +134,7 @@
                                             </div>
                                             <div class="nutrition-info">
                                                 <h3>{% trans "Protein" %}</h3>
-                                                <p>{{ product.attr.Protein }}</p>
+                                                <p>{{ product.attr.protein }}</p>
                                             </div>
                                             <div class="nutrition-info">
                                                 <h3>{% trans "Carbohydrates" %}</h3>

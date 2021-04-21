@@ -115,17 +115,17 @@
 
         <div class="basket-title">
             <div class="row">
-                <p class="col-sm-9 h4">{% trans "Items purchased" %}</p>
-                <p class="col-sm-1 h4 text-center">{% trans "Quantity" %}</p>
-                <p class="col-sm-2 h4 text-right">{% trans "Total" %}</p>
+                <p class="col-8 h4">{% trans "Items purchased" %}</p>
+                <p class="col-2 h4 text-center">{% trans "Quantity" %}</p>
+                <p class="col-2 h4 text-right">{% trans "Total" %}</p>
             </div>
         </div>
 
         {% for line in order.lines.all %}
             <div class="basket-items">
                 <div class="row">
-                    <div class="col-sm-2">
-                        <div class="image_container w-100">
+                    <div class="col-3">
+                        <div class="image_container p-0 w-100">
                             {% with image=line.product.primary_image %}
                                 {% oscar_thumbnail image.original "200x200" upscale=False as thumb %}
                                 <a href="{{ line.product.get_absolute_url }}">
@@ -134,14 +134,14 @@
                             {% endwith %}
                         </div>
                     </div>
-                    <div class="col-sm-7">
+                    <div class="col-6">
                         <h3><a href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h3>
                         {% if line.upc %}<p>{{ line.upc }}</p>{% endif %}
                     </div>
-                    <div class="col-sm-1 text-center">
+                    <div class="col-1 text-center">
                         {{ line.quantity }}
                     </div>
-                    <div class="col-sm-2 text-right">
+                    <div class="col-2 text-right">
                         <p class="price_color">
                             {% if show_tax_separately %}
                                 {{ line.line_price_before_discounts_excl_tax|currency:order.currency }}
