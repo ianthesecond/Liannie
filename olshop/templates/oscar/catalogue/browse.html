@@ -39,9 +39,9 @@
 {% endblock category_nav %}
 
 {% block content_wrapper %}
-<div class="{% block content_wrapper_classes %}container-fluid page{% endblock %}">
+<div class="{% block content_wrapper_classes %}container-fluid page px-0 px-sm-4{% endblock %}">
     <div class="page_inner browse mx-auto">
-        <div class="container-fluid">
+        <div class="container-fluid px-1 px-sm-3">
             {% block header %}
             <div class="page-header">
                 <h1>{% block headertext %}{{ summary }}{% endblock %}</h1>
