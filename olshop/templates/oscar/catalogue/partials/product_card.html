@@ -11,14 +11,14 @@ based off product.html {% endcomment %}
         <a href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">
         <div class="row mx-n2 mx-sm-n3 h-100">
             <div class="col-5 px-2 px-sm-3 py-2 h-100 d-flex flex-column justify-content-center align-items-center">
-            {% block product_image %}
+            {% comment %} {% block product_image %}
                 <div class="image_container p-0 p-sm-2 align-middle text-center">
                     {% with image=product.primary_image %}
                         {% oscar_thumbnail image.original 'x250' upscale=False as thumb %}
                         <img src="{{ thumb.url }}" alt="{{ product.get_title }}" class="img-thumbnail" height="{{ thumb.height }}">
                     {% endwith %}
                 </div>
-            {% endblock %}
+            {% endblock %} {% endcomment %}
             {% iffeature "reviews" %}
                 <p class="star-rating py-2 text-center d-sm-none {{ product.rating|as_stars }}">
                     <i class="fas fa-star"></i>

@@ -221,4 +221,4 @@ OSCAR_CURRENCY_FORMAT = {
     },
 }
 
-OSCAR_REQUIRED_ADDRESS_FIELDS = ('first_name', 'last_name', 'line1', 'phone_number') # Make it so that line4 is automatically set to Jakarta
+OSCAR_REQUIRED_ADDRESS_FIELDS = ('first_name', 'last_name', 'line1', 'phone_number')
