@@ -4,3 +4,5 @@ cache
 db.sqlite3
 images
 media
+staticfiles
+impex.py
