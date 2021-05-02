@@ -6,3 +6,5 @@ images
 media
 staticfiles
 impex.py
+package*
+gulpfile.js
