@@ -10,17 +10,15 @@
 {% endblock %}
 
 {% block top_header %}
-<div class="top-page-header">
-    <h1 class="top-page-header-text">
-        Menu
-    </h1>
+<div class="display-menu-text text-center display-3">
+    Menu
 </div>
 {% endblock top_header %}
 
 {% block category_nav %}
 <ul class="nav justify-content-around align-items-md-end flex-column flex-md-row category-nav">
-    <li class="nav-item category-nav-item {% if not category %}category-nav-item-active{% endif %}">
-        <a class="nav-link category-nav-text" href="{{ homepage_url }}">
+    <li class="nav-item {% if not category %}active{% endif %}">
+        <a class="nav-link" href="{{ homepage_url }}">
             All
         </a>
     </li>
@@ -28,8 +26,8 @@
 
 {% if tree_categories %}
 {% for tree_category in tree_categories %}
-    <li class="nav-item category-nav-item {% if tree_category.pk == category.pk %}category-nav-item-active{% endif %}">
-        <a class="nav-link category-nav-text" href="{{ tree_category.url }}">
+    <li class="nav-item {% if tree_category.pk == category.pk %}active{% endif %}">
+        <a class="nav-link" href="{{ tree_category.url }}">
             {{ tree_category.name }}
         </a>
     </li>

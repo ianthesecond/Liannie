@@ -27,6 +27,19 @@
   }
 }
 
+// The navbar at the topmost of every page
+.navbar-top-page {
+  background: $platinum;
+  border: 3px solid $melon;
+}
+
+#search-icon, #shopping-cart-icon {
+  color: $search-shopping-cart-icon-color;
+  @include hover-focus() {
+    color: darken($search-shopping-cart-icon-color, 5%);
+  }
+}
+
 // Basket Mini Dropdown
 .basket-mini {
   .btn-group {
@@ -34,6 +47,9 @@
   }
 
   .dropdown-menu {
+    background: $platinum;
+    border: 2px solid $vivid-tangerine;
+    box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.25);
     width: 400px;
     padding-bottom: 0;
     max-width: none;
@@ -47,10 +63,11 @@
 
 // Basket Mini Item
 .basket-mini-item {
+  font-family: $font-family-arima-madurai;
   margin-bottom: 0;
 
   li {
-    border-top: 1px solid $gray-300;
+    border-top: 1px solid $cambridge-blue;
     padding: 10px 15px;
 
     &:first-child {
@@ -71,23 +88,32 @@
     }
   }
 
-  a {
-    color: $link-color;
-    font-weight: inherit;
-    white-space: normal;
-
-    &.btn {
-      color: $white;
+  .product-title {
+    a {
+      font-weight: inherit;
+      white-space: normal; 
+      font-family: $font-family-amatic-sc;
+      color: $tan-crayola;
+      font-size: 1.75rem;
+      font-style: normal;
+      font-weight: bold;
     }
   }
+  
 
   .form-actions {
+    background-color: $beta; // $alabaster
     border-radius: 0 0 6px 6px;
     margin: 0;
     overflow: hidden;
 
     h4 {
       margin-bottom: $base-margin-bottom;
+    }
+
+    p {
+      font-size: $font-size-base * 1.15;
+      color: $xanadu;
     }
   }
 }

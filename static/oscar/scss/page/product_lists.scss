@@ -1,11 +1,59 @@
-// Products listed container
+/* 
+The browse page styles
+*/
+
+// The "Menu" display text between and under the search and basket icon 
+.display-menu-text {
+  color: $primary;
+  font-family: $font-family-parisienne;
+  font-style: normal;
+  font-weight: normal;
+}
+
+// The category nav above the product list
+.category-nav {
+  padding: 0px 25px;
+  
+  .nav-item { // category-nav-item
+    background: $beta; // $alabaster
+    border-width: 3px 3px 0 3px;
+    border-style: solid;
+    border-color: $melon;
+    border-radius: 6px 6px 0px 0px;
+    box-shadow: 0px -3px 19px 6px rgba(0, 0, 0, 0.07);
+  }
+
+  &.active { // category-nav-item-active
+    height: 3rem;
+  }
+
+  .nav-link { // category-nav-text
+    font-family: $font-family-handlee;
+    font-style: normal;
+    font-weight: normal;
+    color: $xanadu;
+    padding: 0 1rem;
+    text-align: center;
+  }
+}
+
+.product-result-count, .nonefound {
+  font-family: $font-family-handlee;
+  font-size: $font-size-base * 1.15;
+  color: $primary;
+}
+
+// Products mini container
 // Space between products in a list is determined by the Grid and therefore the
 // gutter width: 20px
 .product_pod {
-  height: 380px;
+  background-color: $platinum;
+  border: 2px solid $cambridge-blue;
+  border-radius: 5px;
+  // height: 310px;
   overflow: hidden;
   text-align: center;
-  margin: $base-margin-bottom 0;
+  margin: $font-size-base 0;
   position: relative;
 
   p, h3, h2, form {
@@ -23,7 +71,7 @@
 
   .availability,
   .price_color {
-    min-height: 30px;
+    min-height: 30px; // not in product_card
     white-space: nowrap;
   }
 
@@ -39,10 +87,136 @@
   }
 }
 
+%product-name-price {
+  font-family: $font-family-amatic-sc;
+  color: $tan-crayola;
+  font-size: $h2-font-size;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.product_card {
+  overflow: hidden;
+  text-align: center;
+  margin: 1rem 0;
+  position: relative; 
+  background: $isabelline;
+  border: 2px solid $vivid-tangerine;
+  /* box-sizing: border-box; */
+  border-radius: 15px;
+
+  @include hover-focus() {
+    transition: all 0.2s ease-out;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    top: -4px;
+  }
+
+  a {
+    @include hover-focus() {
+      text-decoration: none;
+    }
+  }
+
+  p, h3, h2, form {
+    margin-bottom: 0;
+  }
+
+  // product details
+  p {
+    font-style: normal;
+    font-weight: normal;
+    color: $tan-crayola;
+    font-size: 1.15rem;
+    text-align: left;
+    vertical-align: top;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical; 
+    overflow: hidden
+  }
+
+  // when screen size is bellow md, clamp details to 3 lines instead of 4
+  @include media-breakpoint-down(md) {
+    p {
+      -webkit-line-clamp: 3;
+    }
+  }
+
+  h3 {
+    @extend .h5;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical; 
+    overflow: hidden;
+    @extend %product-name-price;
+  }
+
+  .price_color {
+    @extend .h4;
+    color: $tan-crayola;
+  }
+
+  .availability,
+  .price_color {
+    white-space: nowrap;
+  }
+
+  .product_price {
+    position: static;
+
+    p {
+      @extend %product-name-price;
+    }
+  }
+
+  .img-thumbnail {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    object-fit: cover;
+    padding: 0;
+    background-color: #fff;
+    border: 1px solid $vivid-tangerine;
+    border-radius: 0.25rem;
+  }
+
+  .image_container {
+    box-sizing: border-box;
+    min-height: 0;
+  }
+
+  // 
+  //  THE FOLLOWING ARE NOT DRY
+  //  NEED TO FIX THE PRODUCT THUMBNAILER
+  //
+  @include media-breakpoint-up(sm) {
+    .image_container {
+      height: 200px;
+      width: 200px;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .image_container {
+      height: 200px;
+      width: 200px;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .image_container {
+      height: 280px;
+      width: 280px;
+    }
+  }
+}
+
 // Product list image container sets a height so images don't breakout
 // This can be used to vertically align the image with same line-height
 // Alternatively if you are cropping images and have a specific W & H this isn't neccessary
 .image_container {
+  box-sizing: border-box;
+  padding: $font-size-base/2; // 0.5rem
   min-height: $image-container-height;
   overflow: hidden;
   text-align: center;
@@ -57,5 +231,5 @@
 // Add a hover state for thumbnail
 a:hover .thumbnail {
   border-color: $link-color;
-  @include box-shadow(0 1px 4px rgba(0, 105, 214, .25));
+  @include box-shadow(0 1px 4px rgba($link-hover-color, .25));
 }

@@ -1,5 +1,88 @@
 // OSCAR PRODUCTS UNIQUE STYLES
 // ----------------------------
+
+// 
+.page_inner.detail {
+  padding: 0;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  color: $tan-crayola;
+}
+
+.product-unscrollable, .product_main {
+  background: $isabelline;
+  border: 2px solid $vivid-tangerine;
+}
+
+.product-unscrollable {
+  border-radius: 0.5rem 2rem 0 0;
+  display: inline-block; 
+
+  .breadcrumb {
+    border-bottom: 1px solid $medium-melon;
+  }
+
+  // titile and price
+  h1, .price_color {
+    margin-bottom: 0;
+    font-family: $font-family-amatic-sc;
+    font-style: normal;
+    font-weight: bold;
+    font-size: $h1-font-size;
+    line-height: normal;
+    color: $tan-crayola;
+  }
+
+  p {
+    font-size: $h5-font-size;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .product_main {
+    left: -1px;
+    border-radius: 0 0.5rem 0.5rem 0;
+    margin-top: 3.25rem;
+    height: 110vh;
+  }
+  .product_unscrollable {
+    right: -1px;
+    border-radius: 0.5rem 2rem 0 0.5rem;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .product_main {
+    border-bottom: none;
+  }
+}
+
+.product_main > div {
+  overflow-y: scroll;
+  height: 100%;
+}
+
+
+
+.horizontal-scroll {
+  border-width: 2px 0px;
+  border-style: solid;
+  border-color: $vivid-tangerine;
+  background-color: $alabaster;
+  overflow: auto;
+  white-space: nowrap;
+
+ li {
+    display: inline-block;
+    text-align: center;
+    padding: 0.5rem;
+    text-decoration: none;
+  } 
+}
+
+
+
 .availability {
   &.outofstock {
     color: $danger;
@@ -19,7 +102,7 @@
   font-weight: bold;
 }
 
-.product_main .price_color {
+.product_unscrollable .price_color {
   font-size: $h2-font-size;
 }
 

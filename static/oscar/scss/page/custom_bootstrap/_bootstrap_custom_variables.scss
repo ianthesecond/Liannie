@@ -1,0 +1,124 @@
+// custom variables to override those of Bootstrap's
+
+$enable-shadows: true;
+$enable-responsive-font-sizes: true;
+$enable-rounded: true;
+
+$colors: map-merge($custom-colors, $colors); 
+
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg:                   #E3A066;
+$body-color:                  #F5D0C5;
+
+$primary: $vivid-tangerine; // link-color based on primary
+$secondary: $xanadu;
+$success: $celadon;
+$danger: $pastel-pink;
+$alpha: $peach-crayola;
+$beta: $alabaster;
+
+$theme-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "danger": $danger,
+    "alpha": $alpha,
+    "beta": $beta
+);
+
+$link-color: $bole;
+
+$custom-control-label-color: $vivid-tangerine;
+
+// Headings
+$headings-font-family: $font-family-arima-madurai;
+$headings-color:       $primary; // $vivid-tangerine
+
+// Thumbnails
+$thumbnail-padding:                 null;
+$thumbnail-bg:                      null;
+$thumbnail-border-color:            $vivid-tangerine;
+$thumbnail-box-shadow:              null;
+
+// Tables
+$table-color:                 null;
+$table-border-color:          $peach-crayola; // source: $border-color
+$table-accent-bg:             rgba($peach-puff, .05);
+$table-hover-bg:              rgba($peach-puff, .075);
+
+// Buttons + Forms
+//
+// Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
+$input-btn-font-family: $font-family-handlee;
+$input-font-family:     $input-btn-font-family;
+$btn-font-family:       $input-btn-font-family;
+$input-color:           $xanadu;
+$input-bg:              $platinum;
+
+// Dropdown
+$dropdown-bg: $beta; // $alabaster
+$dropdown-border-color:      $vivid-tangerine;
+$dropdown-box-shadow:        0px 0px 30px 5px rgba($black, 0.25);
+$dropdown-link-color:        null;
+$dropdown-link-hover-color:  null;
+$dropdown-link-hover-bg:     $isabelline;
+$dropdown-link-active-color: $beta; // $alabaster // source: $component-active-color
+$dropdown-link-active-bg:    $bole; // source: $component-active-bg
+
+$component-active-color:      $beta; // $alabaster
+$component-active-bg:         $primary; // source: based on primary theme
+
+// navs
+$nav-tabs-border-color:             $peach-puff;
+$nav-tabs-link-hover-border-color:  $peach-crayola $peach-crayola null $peach-crayola;
+$nav-tabs-link-active-color:        null;
+$nav-tabs-link-active-bg:           null;
+$nav-tabs-link-active-border-color: $peach-puff $peach-puff $champagne-pink;
+$nav-link-disabled-color:           $cambridge-blue;
+$nav-link-color: $primary; // $vivid-tangerine 
+
+$nav-pills-link-active-color:       $isabelline; // source: $component-active-color
+$nav-pills-link-active-bg:          $component-active-bg;
+
+// card
+$card-bg: $beta; // $alabaster
+$card-border-color: $vivid-tangerine;
+
+// Breadcrumb
+$breadcrumb-bg: null;
+
+// pagination
+$pagination-color:        $tan-crayola; // source: $link-color
+$pagination-bg:           $beta; // $alabaster
+$pagination-border-color: $melon;
+
+$pagination-hover-color: $tan-crayola; // source: $link-hover-color
+$pagination-hover-bg: null;
+$pagination-hover-border-color: $melon;
+
+$pagination-active-color: $melon; // source: $component-active-color
+$pagination-active-bg: $beta; // $alabaster // source: $component-active-bg
+$pagination-active-border-color: $melon; // source: $pagination-active-bg
+
+$pagination-disabled-bg: $pagination-active-bg;
+$pagination-disabled-border-color: $pagination-active-border-color;
+
+// $input-btn-focus-box-shadow:  0 0 0 $input-btn-focus-width $input-btn-focus-color !default;
+$pagination-focus-box-shadow: null; // source: $input-btn-focus-box-shadow
+
+// Alert
+$alern-border: $border-radius-lg;
+$alert-border-width: 2px;
+
+// navbar
+$navbar-brand-color: $primary; // source: $vivid-tangerine
+$navbar-toggler-color: $primary;
+$navbar-toggler-border-color: $primary;
+
+
+
+

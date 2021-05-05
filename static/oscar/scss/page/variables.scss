@@ -1,3 +1,57 @@
+// Custom colors
+$misty-rose: #FAE1DD;
+$vivid-tangerine: #FD9886;
+$bole: #713F36;
+$caput-mortuum: #492822;
+$peach-crayola: #FEC89A;
+$peach-puff: #FFD7BA;
+$xanadu: #697970;
+$platinum: #E8E8E4;
+$celadon: #B7FCC6;
+$dark-sea-green: #85B890;
+$green-pigment: #44AA5B;
+$pastel-pink: #ECACAC;
+$new-york-pink: #E28080;
+$french-raspberry: #C03C49;
+$alabaster: #D8E2DC;
+$isabelline: #F8EDEB;
+$cambridge-blue: #9EC1AC;
+$champagne-pink: #FFE5D9;
+$tan-crayola: #E3A066;
+$melon: #FEC5BB;
+$unbleached-silk: #F5D0C5;
+$light-gray: #D5D5D5;
+$medium-melon: #F9B6AB;
+$middle-red: #E89075;
+
+$custom-colors: (
+    "misty-rose": $misty-rose,
+    "vivid-tangerine": $vivid-tangerine,
+    "bole": $bole,
+    "caput-mortuum": $caput-mortuum,
+    "peach-crayola": $peach-crayola,
+    "peach-puff": $peach-puff,
+    "xanadu": $xanadu,
+    "platinum": $platinum,
+    "celadon": $celadon,
+    "dark-sea-green": $dark-sea-green,
+    "green-pigment": $green-pigment,
+    "pastel-pink": $pastel-pink,
+    "new-york-pink": $new-york-pink,
+    "french-raspberry": $french-raspberry,
+    "alabaster": $alabaster,
+    "isabelline": $isabelline,
+    "cambridge-blue": $cambridge-blue,
+    "champagne-pink": $champagne-pink,
+    "tan-crayola": $tan-crayola,
+    "melon": $melon,
+    "unbleached-silk": $unbleached-silk,
+    "light-gray": $light-gray,
+    "medium-melon": $medium-melon,
+    "middle-red": $middle-red
+);
+
+
 // Overridden Bootstrap4 variables
 // -------------------------------
 
@@ -20,6 +74,29 @@ $form-actions-border-color:   #e9ecef; // Bootstrap's `$gray-200`
 
 $base-margin-bottom:          1rem !default;
 
-$rated-star-color:            #ffc107; // Bootstrap's `$yellow`
+$rated-star-color:            $bole;
 
 $font-size-small:             $font-size-base * 0.75;   // 12px
+
+// the color of the shopping cart and search icon under the topmost nav
+$search-shopping-cart-icon-color: $vivid-tangerine; // should follow $primary
+
+// Scrollbar colors
+$scrollbarBG: $misty-rose;
+$thumbBG: $vivid-tangerine;
+
+// 
+// Bootstrap's fonts
+//
+// stylelint-disable value-keyword-case
+$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base:            $font-family-sans-serif !default;
+// stylelint-enable value-keyword-case
+
+// Custom font-families
+$font-family-arima-madurai: 'Arima Madurai', Roboto, Helvetica, sans-serif;
+$font-family-handlee:       'Handlee', Helvetica, "Times New Roman";
+$font-family-dosis:         'Dosis', Roboto, Helvetica, sans-serif;
+$font-family-amatic-sc:     'Amatic SC', $font-family-base;
+$font-family-parisienne:    'Parisienne', 'Brush Script MT', "Times New Roman";

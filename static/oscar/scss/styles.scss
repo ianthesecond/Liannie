@@ -1,15 +1,26 @@
+/* custom fonts for the site */
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Arima+Madurai:wght@400;500;700&family=Dosis:wght@500;600&family=Handlee&family=Parisienne&display=swap');
+
 @import "page/variables";
 
 // Bootstrap (all dependencies)
-@import "../../../../../node_modules/bootstrap/scss/bootstrap";
+@import "page/custom_bootstrap";
+
 
 // Components: Icons / Fonts
-@import "../../../../../node_modules/@fortawesome/fontawesome-free/scss/solid";
-@import "../../../../../node_modules/@fortawesome/fontawesome-free/scss/regular";
-@import "../../../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/solid";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/regular";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
 
-// Oscar public side pages styles
+
+/* 
+*
+* Below are Oscars public side pages styles
+*
+*/
+
 @import "alerts";
+@import "page/scrollbar";
 @import "page/checkout";
 @import "page/forms";
 @import "page/header";
@@ -17,5 +28,6 @@
 @import "page/plugins";
 @import "page/product_lists";
 @import "page/product_page";
+@import "page/accounts_page.scss";
 @import "page/reviews";
 @import "page/type";

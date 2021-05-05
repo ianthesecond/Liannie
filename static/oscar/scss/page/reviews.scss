@@ -1,6 +1,31 @@
 // Review styles
 // -------------
 
+.review-list {
+  background: $alabaster;
+  border: 2px solid $vivid-tangerine;
+  border-radius: 10px; 
+
+  li {
+    background: $platinum;
+    border: 2px solid $cambridge-blue;
+    border-radius: 5px;
+    color: $bole;
+
+    p {
+      font-size: $font-size-base * 1.15;
+    }
+
+    header a {
+      font-family: $font-family-amatic-sc;
+      font-style: normal;
+      font-weight: bold;
+      font-size: $h3-font-size;
+    }
+  }
+
+}
+
 .review {
   margin-bottom: $base-margin-bottom;
   @include clearfix;
@@ -21,7 +46,7 @@
 
 // Star Rating using font icons for 5 stars
 .star-rating {
-  color: $gray-400;
+  color: $light-gray;
 
   i {
     letter-spacing: -1px;

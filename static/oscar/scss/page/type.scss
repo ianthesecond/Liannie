@@ -1,13 +1,17 @@
 // Page / sub headers consistant
 .page-header, .sub-header {
-  border-bottom: 1px solid $gray-200;
+  border-bottom: 1px solid $medium-melon;
   margin-bottom: 0.625rem;
+}
+
+.page-header h1 {
+  font-family: $font-family-arima-madurai;
+  color: $primary;
 }
 
 // Sub header a little lighter
 .sub-header {
   h2, h3, h4 {
     font-size: $font-size-base * 1.6;
-    color: $gray-800;
   }
 }
