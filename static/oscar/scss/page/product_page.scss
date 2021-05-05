@@ -1,6 +1,63 @@
 // OSCAR PRODUCTS UNIQUE STYLES
 // ----------------------------
 
+
+// Products mini container
+// Space between products in a list is determined by the Grid and therefore the
+// gutter width: 20px
+.product_pod {
+  background-color: $platinum;
+  border: 2px solid $cambridge-blue;
+  border-radius: 5px;
+  // height: 310px;
+  overflow: hidden;
+  text-align: center;
+  margin: 0.25rem 0;
+  position: relative;
+
+  p, h3, h2, form {
+    margin-bottom: 0;
+  }
+
+  h3, a {
+    font-weight: bold;
+    @extend .h2;
+    font-family: $font-family-amatic-sc;
+    color: $tan-crayola;
+  }
+
+  .price_color {
+    padding: 0 0.5rem;
+    text-align: right;
+    font-weight: bold;
+    @extend .h2;
+    font-family: $font-family-amatic-sc;
+    color: $tan-crayola;
+  }
+
+  .availability,
+  .price_color {
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+
+  // .image_container,
+  // .availability,
+  // .price_color {
+  //   margin-bottom: $base-margin-bottom / 2;
+  // }
+
+  .product_price {
+    bottom: 0;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+  }
+}
+
+
 // 
 .page_inner.detail {
   padding: 0;
@@ -66,6 +123,7 @@
 
 
 .horizontal-scroll {
+  padding: 0 0.5rem;
   border-width: 2px 0px;
   border-style: solid;
   border-color: $vivid-tangerine;
@@ -76,7 +134,7 @@
  li {
     display: inline-block;
     text-align: center;
-    padding: 0.5rem;
+    padding: 0.25rem;
     text-decoration: none;
   } 
 }

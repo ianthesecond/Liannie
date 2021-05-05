@@ -10,9 +10,12 @@ The browse page styles
   font-weight: normal;
 }
 
+.category-nav-wrapper {
+  max-width: map-get($map: $grid-breakpoints, $key: lg);
+}
+
 // The category nav above the product list
 .category-nav {
-  max-width: map-get($map: $grid-breakpoints, $key: lg);
   padding: 0px 25px;
   
   .nav-item { // category-nav-item
@@ -22,10 +25,10 @@ The browse page styles
     border-color: $melon;
     border-radius: 6px 6px 0px 0px;
     box-shadow: 0px -3px 19px 6px rgba(0, 0, 0, 0.07);
-  }
 
-  &.active { // category-nav-item-active
-    height: 3rem;
+    &.active { // category-nav-item-active
+      height: 3rem;
+    }  
   }
 
   .nav-link { // category-nav-text
@@ -42,50 +45,6 @@ The browse page styles
   font-family: $font-family-handlee;
   font-size: $font-size-base * 1.15;
   color: $primary;
-}
-
-// Products mini container
-// Space between products in a list is determined by the Grid and therefore the
-// gutter width: 20px
-.product_pod {
-  background-color: $platinum;
-  border: 2px solid $cambridge-blue;
-  border-radius: 5px;
-  // height: 310px;
-  overflow: hidden;
-  text-align: center;
-  margin: $font-size-base 0;
-  position: relative;
-
-  p, h3, h2, form {
-    margin-bottom: 0;
-  }
-
-  h3 {
-    @extend .h5;
-  }
-
-  .price_color {
-    @extend .h4;
-    color: $success;
-  }
-
-  .availability,
-  .price_color {
-    min-height: 30px; // not in product_card
-    white-space: nowrap;
-  }
-
-  .image_container,
-  .availability,
-  .price_color {
-    margin-bottom: $base-margin-bottom / 2;
-  }
-
-  .product_price {
-    position: absolute;
-    bottom: 0;
-  }
 }
 
 %product-name-price {
@@ -123,7 +82,7 @@ The browse page styles
   }
 
   // product details
-  p {
+  .short_description {
     font-style: normal;
     font-weight: normal;
     color: $tan-crayola;
@@ -138,7 +97,7 @@ The browse page styles
 
   // when screen size is bellow md, clamp details to 3 lines instead of 4
   @include media-breakpoint-down(md) {
-    p {
+    .short_description {
       -webkit-line-clamp: 3;
     }
   }

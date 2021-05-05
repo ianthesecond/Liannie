@@ -15,25 +15,28 @@
 </div>
 {% endblock top_header %}
 
-{% block category_nav %}
-<ul class="nav justify-content-around align-items-md-end flex-column flex-md-row category-nav">
-    <li class="nav-item {% if not category %}active{% endif %}">
-        <a class="nav-link" href="{{ homepage_url }}">
-            All
-        </a>
-    </li>
-{% category_tree as tree_categories %}
 
-{% if tree_categories %}
-{% for tree_category in tree_categories %}
-    <li class="nav-item {% if tree_category.pk == category.pk %}active{% endif %}">
-        <a class="nav-link" href="{{ tree_category.url }}">
-            {{ tree_category.name }}
-        </a>
-    </li>
-{% endfor %}
-{% endif %}
-</ul>
+{% block category_nav %}
+<div class="category-nav-wrapper mx-auto">
+    <ul class="nav justify-content-around align-items-md-end flex-column flex-md-row category-nav">
+        <li class="nav-item {% if not category %}active{% endif %}">
+            <a class="nav-link" href="{{ homepage_url }}">
+                All
+            </a>
+        </li>
+    {% category_tree as tree_categories %}
+
+    {% if tree_categories %}
+    {% for tree_category in tree_categories %}
+        <li class="nav-item {% if tree_category.pk == category.pk %}active{% endif %}">
+            <a class="nav-link" href="{{ tree_category.url }}">
+                {{ tree_category.name }}
+            </a>
+        </li>
+    {% endfor %}
+    {% endif %}
+    </ul>
+</div>
 {% endblock category_nav %}
 
 {% block content_wrapper %}

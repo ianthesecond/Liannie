@@ -51,6 +51,8 @@
   i {
     letter-spacing: -1px;
     width: auto;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $bole;
   }
 
   a {
@@ -58,32 +60,36 @@
   }
 }
 
+%rated-star {
+  color: $rated-star-color;
+}
+
 .star-rating.One {
   i:first-child {
-    color: $rated-star-color;
+    @extend %rated-star;
   }
 }
 
 .star-rating.Two {
   i:first-child, i:first-child + i {
-    color: $rated-star-color;
+    @extend %rated-star;
   }
 }
 
 .star-rating.Three {
   i:first-child, i:first-child + i, i:first-child + i + i {
-    color: $rated-star-color;
+    @extend %rated-star;
   }
 }
 
 .star-rating.Four {
   i:first-child, i:first-child + i, i:first-child + i + i, i:first-child + i + i + i {
-    color: $rated-star-color;
+    @extend %rated-star;
   }
 }
 
 .star-rating.Five {
   i {
-    color: $rated-star-color;
+    @extend %rated-star;
   }
 }
