@@ -123,25 +123,25 @@
                                     {% endblock %}
 
                                     {% block nutrition_summary %}
-                                    <div id="nutrition-summary-container">
+                                    <div id="nutrition-summary-container" class="mb-4">
                                         <div id="nutrition_summary" class="sub-header">
                                             <h2>{% trans "Nutrition Summary" %}</h2>
                                         </div>
                                         <div class="d-flex justify-content-around">
                                             <div class="nutrition-info">
-                                                <h3>{% trans "Calories" %}</h3>
+                                                <h4>{% trans "Calories" %}</h4>
                                                 <p>{{ product.attr.calories }}</p>
                                             </div>
                                             <div class="nutrition-info">
-                                                <h3>{% trans "Protein" %}</h3>
+                                                <h4>{% trans "Protein" %}</h4>
                                                 <p>{{ product.attr.protein }}</p>
                                             </div>
                                             <div class="nutrition-info">
-                                                <h3>{% trans "Carbohydrates" %}</h3>
+                                                <h4>{% trans "Carbohydrates" %}</h4>
                                                 <p>{{ product.attr.carbohydrates }}</p>
                                             </div>
                                             <div class="nutrition-info">
-                                                <h3>{% trans "Fat" %}</h3>
+                                                <h4>{% trans "Fat" %}</h4>
                                                 <p>{{ product.attr.fat }}</p>
                                             </div>
                                         </div>

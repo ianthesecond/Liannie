@@ -98,7 +98,7 @@
 
 .price_color {
   display: block;
-  color: $success;
+  color: $price_color;
   font-weight: bold;
 }
 
@@ -128,13 +128,13 @@
 // Align wish list button with add to basket button
 .add-to-basket {
   //Width of default input/select/textarea
-  width: 220px;
+  // width: 220px;
   margin-right: 10px;
 }
 
 .add-to-basket,
 .btn-wishlist {
-  display: inline-block;
+  display: inline;
   zoom: 1;
 }
 
@@ -146,5 +146,14 @@
 #add_review_form {
   #id_title, #id_body {
     max-width: 500px;
+  }
+}
+
+.nutrition-info {
+  border-left: 1px solid $primary;
+  padding-left: 0.25rem;
+
+  p {
+    margin-bottom: 0;
   }
 }

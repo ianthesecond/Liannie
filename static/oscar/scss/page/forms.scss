@@ -5,6 +5,10 @@ form {
   @include clearfix;
 }
 
+label {
+  color: $label-color;
+}
+
 // For IE: adds width for selects inside overflow hidden containers
 .select-open {
   width: 300px !important;

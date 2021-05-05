@@ -12,6 +12,7 @@ The browse page styles
 
 // The category nav above the product list
 .category-nav {
+  max-width: map-get($map: $grid-breakpoints, $key: lg);
   padding: 0px 25px;
   
   .nav-item { // category-nav-item
@@ -37,7 +38,7 @@ The browse page styles
   }
 }
 
-.product-result-count, .nonefound {
+.product-results-count, .nonefound {
   font-family: $font-family-handlee;
   font-size: $font-size-base * 1.15;
   color: $primary;
@@ -183,31 +184,6 @@ The browse page styles
   .image_container {
     box-sizing: border-box;
     min-height: 0;
-  }
-
-  // 
-  //  THE FOLLOWING ARE NOT DRY
-  //  NEED TO FIX THE PRODUCT THUMBNAILER
-  //
-  @include media-breakpoint-up(sm) {
-    .image_container {
-      height: 200px;
-      width: 200px;
-    }
-  }
-
-  @include media-breakpoint-up(md) {
-    .image_container {
-      height: 200px;
-      width: 200px;
-    }
-  }
-
-  @include media-breakpoint-up(lg) {
-    .image_container {
-      height: 280px;
-      width: 280px;
-    }
   }
 }
 

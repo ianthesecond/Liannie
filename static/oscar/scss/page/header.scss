@@ -64,6 +64,7 @@
 // Basket Mini Item
 .basket-mini-item {
   font-family: $font-family-arima-madurai;
+  color: $primary;
   margin-bottom: 0;
 
   li {
@@ -76,8 +77,9 @@
   }
 
   .image_container {
-    $image-container-height: 70px;
+    $image-container-height: 50px;
     min-height: $image-container-height;
+    padding: 0;
 
     img {
       max-height: $image-container-height;
@@ -98,6 +100,8 @@
       font-style: normal;
       font-weight: bold;
     }
+
+    margin-bottom: null;
   }
   
 

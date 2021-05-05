@@ -1,7 +1,7 @@
 {% load reviews_tags %}
 {% load i18n %}
 
-<div class="text-center">
+<div class="text-center mb-2">
     {% if product|is_review_permitted:user %}
         <a id="write_review" href="{% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id %}#addreview">
             {% trans "Write a review" %}
