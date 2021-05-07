@@ -4838,13 +4838,13 @@ input[type=button].btn-block {
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #E3A066;
+  color: #FD9886;
   background-color: #D8E2DC;
   border: 1px solid #FEC5BB;
 }
 .page-link:hover {
   z-index: 2;
-  color: #E3A066;
+  color: #FD9886;
   text-decoration: none;
   border-color: #FEC5BB;
 }
@@ -16956,6 +16956,7 @@ The browse page styles
   white-space: nowrap;
 }
 .product_card .product_price {
+  margin-bottom: 0;
   position: static;
 }
 .product_card .img-thumbnail {
