@@ -16861,6 +16861,22 @@ The browse page styles
   font-family: "Parisienne", "Brush Script MT", "Times New Roman";
   font-style: normal;
   font-weight: normal;
+  font-size: 4.5rem;
+}
+@media (max-width: 1200px) {
+  .display-menu-text {
+    font-size: calc(1.575rem + 3.9vw);
+  }
+}
+@media (max-width: 767.98px) {
+  .display-menu-text {
+    font-size: 6rem;
+  }
+}
+@media (max-width: 767.98px) and (max-width: 1200px) {
+  .display-menu-text {
+    font-size: calc(1.725rem + 5.7vw);
+  }
 }
 
 .category-nav-wrapper {
@@ -16949,6 +16965,7 @@ The browse page styles
   overflow: hidden;
 }
 .product_card .price_color {
+  margin-bottom: 0;
   color: #E3A066;
 }
 .product_card .availability,

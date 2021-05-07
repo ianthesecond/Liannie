@@ -8,6 +8,11 @@ The browse page styles
   font-family: $font-family-parisienne;
   font-style: normal;
   font-weight: normal;
+  @include rfs($display3-size);
+
+  @include media-breakpoint-down(sm) {
+    @include rfs($display1-size);
+  }
 }
 
 .category-nav-wrapper {
@@ -113,6 +118,7 @@ The browse page styles
 
   .price_color {
     @extend .h4;
+    margin-bottom: 0;
     color: $tan-crayola;
   }
 
