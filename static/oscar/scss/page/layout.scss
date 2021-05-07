@@ -18,7 +18,7 @@ body {
 // Also useful for mobile
 .page_inner {
   font-family: $font-family-handlee;
-  font-size: $font-size-base * 1.05;
+  @include rfs(1.05rem);
   padding: $grid-gutter-width;
   @include clearfix();
 }

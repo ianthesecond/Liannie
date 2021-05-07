@@ -22,6 +22,9 @@ The browse page styles
 // The category nav above the product list
 .category-nav {
   padding: 0px 25px;
+  @include media-breakpoint-down(sm) {
+    padding: 0px 40px;
+  }
   
   .nav-item { // category-nav-item
     background: $beta; // $alabaster
@@ -55,7 +58,7 @@ The browse page styles
 %product-name-price {
   font-family: $font-family-amatic-sc;
   color: $tan-crayola;
-  font-size: $h2-font-size;
+  @include rfs($h2-font-size);
   font-style: normal;
   font-weight: bold;
 }
@@ -91,7 +94,7 @@ The browse page styles
     font-style: normal;
     font-weight: normal;
     color: $tan-crayola;
-    font-size: 1.15rem;
+    @include font-size($h6-font-size);
     text-align: left;
     vertical-align: top;
     display: -webkit-box;
@@ -150,6 +153,12 @@ The browse page styles
   .image_container {
     box-sizing: border-box;
     min-height: 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    .btn {
+      padding: 1px 6px;
+    }
   }
 }
 

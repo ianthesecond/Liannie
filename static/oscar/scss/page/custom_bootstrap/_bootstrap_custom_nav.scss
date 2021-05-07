@@ -16,6 +16,9 @@
     font-style: normal;
     font-weight: 600;
     font-size: $font-size-base * 1.2;
+    @include media-breakpoint-down(sm) {
+      font-size: $font-size-base * 1.05
+    }
     color: $nav-link-color; // $vivid-tangerine
     display: block;
     padding: $nav-link-padding-y $nav-link-padding-x;

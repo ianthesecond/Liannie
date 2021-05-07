@@ -4127,6 +4127,11 @@ input[type=button].btn-block {
   display: block;
   padding: 0.5rem 1rem;
 }
+@media (max-width: 767.98px) {
+  .nav-link {
+    font-size: 1.05rem;
+  }
+}
 .nav-link:hover, .nav-link:focus {
   text-decoration: none;
   color: #fd836d;
@@ -16886,6 +16891,11 @@ The browse page styles
 .category-nav {
   padding: 0px 25px;
 }
+@media (max-width: 767.98px) {
+  .category-nav {
+    padding: 0px 40px;
+  }
+}
 .category-nav .nav-item {
   background: #D8E2DC;
   border-width: 3px 3px 0 3px;
@@ -16919,6 +16929,11 @@ The browse page styles
   font-style: normal;
   font-weight: bold;
 }
+@media (max-width: 1200px) {
+  .product_card .product_price p, .product_card h3 {
+    font-size: calc(1.325rem + 0.9vw);
+  }
+}
 
 .product_card {
   overflow: hidden;
@@ -16945,7 +16960,7 @@ The browse page styles
   font-style: normal;
   font-weight: normal;
   color: #E3A066;
-  font-size: 1.15rem;
+  font-size: 1rem;
   text-align: left;
   vertical-align: top;
   display: -webkit-box;
@@ -16989,6 +17004,11 @@ The browse page styles
 .product_card .image_container {
   box-sizing: border-box;
   min-height: 0;
+}
+@media (max-width: 767.98px) {
+  .product_card .btn {
+    padding: 1px 6px;
+  }
 }
 
 .image_container {
@@ -17225,6 +17245,11 @@ a:hover .thumbnail {
 
 .star-rating {
   color: #D5D5D5;
+}
+@media (max-width: 767.98px) {
+  .star-rating {
+    font-size: 0.9rem;
+  }
 }
 .star-rating i {
   letter-spacing: -1px;

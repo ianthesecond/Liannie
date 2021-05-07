@@ -13,7 +13,7 @@
     color: $bole;
 
     p {
-      font-size: $font-size-base * 1.15;
+      @include rfs(1.15rem);
     }
 
     header a {
@@ -47,6 +47,9 @@
 // Star Rating using font icons for 5 stars
 .star-rating {
   color: $light-gray;
+  @include media-breakpoint-down(sm) {
+    @include font-size(0.9rem);
+  }
 
   i {
     letter-spacing: -1px;
