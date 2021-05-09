@@ -17,26 +17,31 @@
 
 
 {% block category_nav %}
-<div class="category-nav-wrapper mx-auto">
-    <ul class="nav justify-content-around align-items-md-end flex-column flex-md-row category-nav">
-        <li class="nav-item {% if not category %}active{% endif %}">
-            <a class="nav-link" href="{{ homepage_url }}">
-                All
-            </a>
-        </li>
-    {% category_tree as tree_categories %}
+<nav id="category_navbar" class="navbar navbar-expand-sm pb-0">
+    <button class="navbar-toggler border-0 mx-auto" type="button" data-toggle="collapse" data-target=".category-nav-wrapper" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <div class="collapse navbar-collapse category-nav-wrapper mx-auto">
+        <ul class="navbar-nav justify-content-around align-items-md-end flex-column flex-md-row category-nav">
+            <li class="nav-item {% if not category %}active{% endif %}">
+                <a class="nav-link" href="{{ homepage_url }}">
+                    All
+                </a>
+            </li>
+        {% category_tree as tree_categories %}
 
-    {% if tree_categories %}
-    {% for tree_category in tree_categories %}
-        <li class="nav-item {% if tree_category.pk == category.pk %}active{% endif %}">
-            <a class="nav-link" href="{{ tree_category.url }}">
-                {{ tree_category.name }}
-            </a>
-        </li>
-    {% endfor %}
-    {% endif %}
-    </ul>
-</div>
+        {% if tree_categories %}
+        {% for tree_category in tree_categories %}
+            <li class="nav-item {% if tree_category.pk == category.pk %}active{% endif %}">
+                <a class="nav-link" href="{{ tree_category.url }}">
+                    {{ tree_category.name }}
+                </a>
+            </li>
+        {% endfor %}
+        {% endif %}
+        </ul>
+    </div>
+</nav>
 {% endblock category_nav %}
 
 {% block content_wrapper %}
