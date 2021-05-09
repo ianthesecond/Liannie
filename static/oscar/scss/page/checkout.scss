@@ -45,7 +45,7 @@ input[type="text"][id*="quantity"], input[type="number"][id*="quantity"] {
   .price_color {
     @extend .h4;
     font-size: $font-size-base;
-    color: $success;
+    color: $tan-crayola;
     font-weight: bold;
 
     .price-title {
@@ -53,9 +53,13 @@ input[type="text"][id*="quantity"], input[type="number"][id*="quantity"] {
       font-weight: normal;
     }
 
-    // .image_container {
-    //   min-height: 0;
-    // }
+    .image_container {
+      min-height: 0;
+    }
+  }
+
+  .image_container {
+    min-height: 0;
   }
 
   .basket-line-actions {

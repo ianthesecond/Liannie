@@ -18,7 +18,7 @@
 
 
 {% block content_wrapper %}
-    <div class="container-fluid px-4 page">
+    <div class="container-fluid px-1 px-sm-4 page">
         <div class="page_inner detail">
             
             
@@ -127,7 +127,7 @@
                                         <div id="nutrition_summary" class="sub-header">
                                             <h2>{% trans "Nutrition Summary" %}</h2>
                                         </div>
-                                        <div class="d-flex justify-content-around">
+                                        <div class="d-flex justify-content-start justify-content-sm-around flex-wrap">
                                             <div class="nutrition-info">
                                                 <h4>{% trans "Calories" %}</h4>
                                                 <p>{{ product.attr.calories }}</p>

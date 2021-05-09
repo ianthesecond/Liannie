@@ -81,9 +81,9 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #F5D0C5;
+  color: #E3A066;
   text-align: left;
-  background-color: #E3A066;
+  background-color: #F5D0C5;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -2156,7 +2156,7 @@ select.form-control:focus::-ms-value {
   margin-bottom: 0;
   font-size: 1rem;
   line-height: 1.5;
-  color: #F5D0C5;
+  color: #E3A066;
   background-color: transparent;
   border: solid transparent;
   border-width: 1px 0;
@@ -2496,7 +2496,7 @@ textarea.form-control {
   display: inline-block;
   font-family: "Handlee", Helvetica, "Times New Roman";
   font-weight: 400;
-  color: #F5D0C5;
+  color: #E3A066;
   text-align: center;
   vertical-align: middle;
   user-select: none;
@@ -2514,7 +2514,7 @@ textarea.form-control {
   }
 }
 .btn:hover {
-  color: #F5D0C5;
+  color: #E3A066;
   text-decoration: none;
 }
 .btn:focus, .btn.focus {
@@ -3973,13 +3973,13 @@ input[type=button].btn-block {
   outline: 0;
 }
 .custom-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #E3A066, 0 0 0 0.2rem rgba(158, 193, 172, 0.25);
+  box-shadow: 0 0 0 1px #F5D0C5, 0 0 0 0.2rem rgba(158, 193, 172, 0.25);
 }
 .custom-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #E3A066, 0 0 0 0.2rem rgba(158, 193, 172, 0.25);
+  box-shadow: 0 0 0 1px #F5D0C5, 0 0 0 0.2rem rgba(158, 193, 172, 0.25);
 }
 .custom-range:focus::-ms-thumb {
-  box-shadow: 0 0 0 1px #E3A066, 0 0 0 0.2rem rgba(158, 193, 172, 0.25);
+  box-shadow: 0 0 0 1px #F5D0C5, 0 0 0 0.2rem rgba(158, 193, 172, 0.25);
 }
 .custom-range::-moz-focus-outer {
   border: 0;
@@ -10199,7 +10199,7 @@ a.text-beta:hover, a.text-beta:focus {
 }
 
 .text-body {
-  color: #F5D0C5 !important;
+  color: #E3A066 !important;
 }
 
 .text-muted {
@@ -16530,12 +16530,18 @@ input[type=text][id*=quantity], input[type=number][id*=quantity] {
 }
 .basket-items .price_color {
   font-size: 1rem;
-  color: #B7FCC6;
+  color: #E3A066;
   font-weight: bold;
 }
 .basket-items .price_color .price-title {
   color: #000;
   font-weight: normal;
+}
+.basket-items .price_color .image_container {
+  min-height: 0;
+}
+.basket-items .image_container {
+  min-height: 0;
 }
 .basket-items .basket-line-actions {
   font-size: 0.75rem;
@@ -16695,11 +16701,19 @@ label {
 .basket-mini .btn-group {
   margin-left: 10px;
 }
+.basket-mini .badge {
+  position: relative;
+  bottom: -10px;
+  left: -10px;
+  background-color: #FD9886;
+  font-family: "Dosis", Roboto, Helvetica, sans-serif;
+}
 .basket-mini .dropdown-menu {
   background: #E8E8E4;
   border: 2px solid #FD9886;
   box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.25);
-  width: 400px;
+  min-width: 300px;
+  width: auto;
   padding-bottom: 0;
   max-width: none;
   z-index: 9999;
@@ -16738,6 +16752,7 @@ label {
   font-size: 1.75rem;
   font-style: normal;
   font-weight: bold;
+  line-height: 0.7;
 }
 .basket-mini-item .form-actions {
   background-color: #D8E2DC;
@@ -17195,6 +17210,7 @@ a:hover .thumbnail {
 .nutrition-info {
   border-left: 1px solid #FD9886;
   padding-left: 0.25rem;
+  margin-left: 1rem;
 }
 .nutrition-info p {
   margin-bottom: 0;

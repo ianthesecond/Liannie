@@ -6,6 +6,12 @@
       <i id="shopping-cart-icon" class="fas fa-shopping-basket fa-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span class="sr-only">Toggle Dropdown</span>
       </i>
+      {% if not request.basket.is_empty %}
+      <span class="badge badge-pill badge-secondary">
+        {{ request.basket.num_items }}
+      </span>
+      {% endif %}
+      
       <div class="dropdown-menu dropdown-menu-right basket-mini-menu">
         {% include "oscar/basket/partials/basket_quick.html" %}
       </div>

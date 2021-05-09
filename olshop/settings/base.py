@@ -208,6 +208,7 @@ CACHES = {
 # cancelled in some mid pipline  
 
 OSCAR_SHOP_NAME = "Liannie's"
+OSCAR_SHOP_TAGLINE = "Lovely Goodies"
 
 OSCAR_INITIAL_ORDER_STATUS = 'Pending'
 OSCAR_INITIAL_LINE_STATUS = 'Pending'

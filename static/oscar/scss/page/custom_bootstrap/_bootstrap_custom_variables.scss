@@ -6,14 +6,6 @@ $enable-rounded: true;
 
 $colors: map-merge($custom-colors, $colors); 
 
-
-// Body
-//
-// Settings for the `<body>` element.
-
-$body-bg:                   #E3A066;
-$body-color:                  #F5D0C5;
-
 $primary: $vivid-tangerine; // link-color based on primary
 $secondary: $xanadu;
 $success: $celadon;
@@ -31,6 +23,13 @@ $custom-theme-colors: (
 );
 
 $theme-colors: map-merge($theme-colors, $custom-theme-colors);
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-color:                   $tan-crayola;
+$body-bg:                      $unbleached-silk;
 
 $component-active-color:        $beta; // $alabaster
 $component-active-bg:           $primary; // source: based on primary theme

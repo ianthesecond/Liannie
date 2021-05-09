@@ -46,11 +46,20 @@
     margin-left: 10px;
   }
 
+  .badge {
+    position: relative;
+    bottom: -10px;
+    left: -10px;
+    background-color: $primary;
+    font-family: $font-family-dosis;
+  }
+
   .dropdown-menu {
     background: $platinum;
     border: 2px solid $vivid-tangerine;
     box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.25);
-    width: 400px;
+    min-width: 300px;
+    width: auto;
     padding-bottom: 0;
     max-width: none;
     z-index: 9999;
@@ -99,6 +108,7 @@
       font-size: 1.75rem;
       font-style: normal;
       font-weight: bold;
+      line-height: 0.7;
     }
 
     margin-bottom: null;
