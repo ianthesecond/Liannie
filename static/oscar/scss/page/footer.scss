@@ -1,0 +1,14 @@
+// Footer under each page styles
+
+.footer {
+    margin-top: 3rem;
+    background-image: linear-gradient(to top, $unbleached-silk 0%, $platinum 100%);
+    padding: 1rem;
+    border: 2px solid $primary;
+    font-family: $font-family-handlee;
+
+    p {
+        text-align: center;
+        margin-bottom: 0;
+    }
+}

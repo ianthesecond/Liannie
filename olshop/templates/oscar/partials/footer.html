@@ -1,0 +1,26 @@
+{% load i18n %}
+<footer class="footer container-fluid">
+    {% block footer %}
+        {% comment %}
+            Could be used for displaying links to privacy policy, terms of service, etc.
+            We have a CSS class defined:
+                <ul class="footer_links inline">
+                    ...
+                </ul>
+         {% endcomment %}
+
+        <p>
+        This website was created for the purpose of demonstration. No real purchases can be made 
+        and no products will be delivered. It is simply for the showcasing of how I could implement
+        an e-commerce site using various different technologies.
+        </p>
+
+        <p>
+        Credits for the products pictures goes to <a href="https://www.instagram.com/harousel/">@harousel.</a>
+        </p>
+
+        <p>
+        <a href="https://github.com/ianthesecond/Liannie">Made by IanTheSecond.</a>
+        </p>
+    {% endblock %}
+</footer>

@@ -17131,7 +17131,7 @@ a:hover .thumbnail {
   }
 }
 @media (max-width: 991.98px) {
-  .product_main {
+  .product_unscrollable {
     border-bottom: none;
   }
 }
@@ -17292,6 +17292,18 @@ a:hover .thumbnail {
 .page-header h1 {
   font-family: "Arima Madurai", Roboto, Helvetica, sans-serif;
   color: #FD9886;
+}
+
+.footer {
+  margin-top: 3rem;
+  background-image: linear-gradient(to top, #F5D0C5 0%, #E8E8E4 100%);
+  padding: 1rem;
+  border: 2px solid #FD9886;
+  font-family: "Handlee", Helvetica, "Times New Roman";
+}
+.footer p {
+  text-align: center;
+  margin-bottom: 0;
 }
 
 /*# sourceMappingURL=styles.css.map */

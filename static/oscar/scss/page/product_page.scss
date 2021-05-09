@@ -110,7 +110,7 @@
 }
 
 @include media-breakpoint-down(md) {
-  .product_main {
+  .product_unscrollable {
     border-bottom: none;
   }
 }
